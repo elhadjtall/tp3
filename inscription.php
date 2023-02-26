@@ -19,5 +19,10 @@
 </html>
 <?php
 if (isset($_POST['submit']) AND isset($_POST['nom']) AND isset($_POST['prenom']) AND isset($_POST['email']) AND isset($_POST['password'])){
-    echo "OK";
+    // declaration des variables 
+    $nom      = trim(htmlspecialchars($_POST['nom']));
+    $prenom   = trim(htmlspecialchars($_POST['prenom']));
+    $email    = trim(htmlspecialchars($_POST['email']));
+    $password = trim(htmlspecialchars($_POST['password']));
 }
+
