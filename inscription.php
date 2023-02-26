@@ -48,7 +48,7 @@ if (isset($_POST['submit']) AND isset($_POST['nom']) AND isset($_POST['prenom'])
                 'nom' => $nom,
                 'prenom' => $prenom,
                 'email' => $email,
-                'password' => $password, // 1 = true, 0 = false
+                'password' => $password,
             ]);
         }
     }
