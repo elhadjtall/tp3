@@ -18,11 +18,27 @@
 </body>
 </html>
 <?php
+// Verification de la presence des champs avec la fonction "isset"
 if (isset($_POST['submit']) AND isset($_POST['nom']) AND isset($_POST['prenom']) AND isset($_POST['email']) AND isset($_POST['password'])){
     // declaration des variables 
     $nom      = trim(htmlspecialchars($_POST['nom']));
     $prenom   = trim(htmlspecialchars($_POST['prenom']));
     $email    = trim(htmlspecialchars($_POST['email']));
     $password = trim(htmlspecialchars($_POST['password']));
+
+    // Verification si les champs sont vides avec "empty"
+    if (empty($nom) OR empty($prenom) OR empty($email) OR empty($password)) {
+        echo "L'un des champs est vide";
+    }
+    else{
+        // verification du mot de pass s'il à 8 caractères
+        if (strlen($password)<8) { echo "le mot de pass est trop court"; }
+        elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) { echo "Le mail est incorrecte"; }
+        else{
+            // Enregistrement des données dans la base de données tp3
+        }
+    }
+
 }
+
 
