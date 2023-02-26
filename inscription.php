@@ -7,7 +7,8 @@
     <title>Inscription</title>
 </head>
 <body>
-    <form action="verification.php" method="POST">
+    <h1>inscription</h1>
+    <form action="" method="POST">
         <input type="text"      name="nom"      placeholder="nom"> <br><br>
         <input type="text"      name="prenom"   placeholder="prenom"><br><br>
         <input type="email"     name="email"    placeholder="email"><br> <br>
@@ -16,3 +17,7 @@
     </form>
 </body>
 </html>
+<?php
+if (isset($_POST['submit']) AND isset($_POST['nom']) AND isset($_POST['prenom']) AND isset($_POST['email']) AND isset($_POST['password'])){
+    echo "OK";
+}
