@@ -1,7 +1,8 @@
 <?php
-// connexion à la base de données
-$db_username = 'root';
-$db_password = '';
-$db_name = 'tp3';
-$db_host = 'localhost';
-$db = mysqli_connect($db_host, $db_username, $db_password, $db_name);
+    $serveurname = 'localhost';
+    $username = 'root';
+    $password = '';
+      $bdd = new PDO("mysql:host=$serveurname;dbname=tp2", $username, $password); 
+      $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+      //  echo 'Connexion réussie';
+    ?>
