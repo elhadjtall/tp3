@@ -1,3 +1,4 @@
+<?php require_once("bdd.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,9 +37,20 @@ if (isset($_POST['submit']) AND isset($_POST['nom']) AND isset($_POST['prenom'])
         elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) { echo "Le mail est incorrecte"; }
         else{
             // Enregistrement des données dans la base de données tp3
+            // Ecriture de la requête
+            $sqlQuery = 'INSERT INTO user(nom, prenom, email, password) VALUES (:nom, :prenom, :email, :password)';
+
+            // Préparation
+            $insertRecipe = $bdd->prepare($sqlQuery);
+
+            // Exécution ! La recette est maintenant en base de données
+            $insertRecipe->execute([
+                'nom' => $nom,
+                'prenom' => $prenom,
+                'email' => $email,
+                'password' => $password, // 1 = true, 0 = false
+            ]);
         }
     }
 
 }
-
-
