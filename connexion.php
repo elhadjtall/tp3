@@ -28,10 +28,13 @@ if (isset($_POST['submit']) AND isset($_POST['email']) AND isset($_POST['passwor
     if (empty($email) OR empty($password)){
         echo "Veuillez remplir un champs";
     }
-
-    // je vais verifier la longueur du contenu du mot de passe
-    if (strlen($password) < 10){
-        echo "le mot de pass est trop court";
+    else{
+        // je vais verifier la longueur du contenu du mot de passe
+        if (strlen($password) < 8){echo "le mot de pass est trop court";}
+        elseif (filter_var($email, FILTER_VALIDATE_EMAIL)){ echo "Votre mail est incorrect"; }
+        else{
+            // On verifie si les donnée existes dans la base de données
+        
+        }  
     }
-    // 
 }
