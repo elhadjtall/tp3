@@ -8,6 +8,7 @@
     <title>formulaire</title>
 </head>
 <body>
+    <h1>Formulaire de recherche de Produit</h1>
     <form action="" method="POST">
         <p><input type="text"    name="nom"     placeholder="article"></p>
         <p><input type="number"  name="prix"    placeholder="prix"></p>
@@ -16,3 +17,11 @@
 </body>
 </html>
 <?php
+if (isset($_POST['submit']) AND isset($_POST['nom']) AND isset($_POST['prix'])){
+    echo "le champs est présent";
+    // determiner les variables
+    $nom = trim(htmlspecialchars($_POST['nom']));
+    $prix = trim(htmlspecialchars($_POST['prix']));
+}
+
+?>
