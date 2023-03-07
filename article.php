@@ -21,7 +21,7 @@ if (isset($_POST['submit']) AND isset($_POST['nom']) AND isset($_POST['prix'])){
     // echo "le champs est présent";
     // determiner les variables
     $nom = trim(htmlspecialchars($_POST['nom']));
-    $prix = trim(htmlspecialchars($_POST['prix']));
+    $prix = trim(htmlspecialchars(floatval($_POST['prix'])));
     if (empty($nom) OR empty($prix)){
         echo "Un champs est vide";
     }
