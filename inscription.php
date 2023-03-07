@@ -54,3 +54,4 @@ if (isset($_POST['submit']) AND isset($_POST['nom']) AND isset($_POST['prenom'])
     }
 
 }
+?>

@@ -1,4 +1,4 @@
-<?php require_once ('bdd_con.php') ?>
+<?php require_once ('bdd.php') ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,10 +18,28 @@
 </html>
 <?php
 if (isset($_POST['submit']) AND isset($_POST['nom']) AND isset($_POST['prix'])){
-    echo "le champs est présent";
+    // echo "le champs est présent";
     // determiner les variables
     $nom = trim(htmlspecialchars($_POST['nom']));
     $prix = trim(htmlspecialchars($_POST['prix']));
-}
+    if (empty($nom) OR empty($prix)){
+        echo "Un champs est vide";
+    }
+    // Verfier la longueur du nom
+    else if (strlen($nom) < 2 OR  strlen($nom) >50){
+        echo "le nom est trop longue ou trop court";
+    }
+    // elseif(!is_float($prix)){
+    //     echo "Le prix doit être un nombre";
+    // }
+    else{
+        $sqlQuery = 'INSERT INTO articles(nom, prix) VALUES(:nom, :prix)';
+        $insertRecipe = $bdd->prepare($sqlQuery);
+        $insertRecipe->execute([
+            'nom' => $nom,
+            'prix' => $prix,
+        ]);
+    }
 
+}
 ?>
