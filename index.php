@@ -18,7 +18,23 @@ $articles = $articlesStatement->fetchAll();
 
 // On affiche chaque recette une à une
 foreach ($articles as $article) {
-    echo '<br/>' .$article['nom'];
+    echo '<p>' .$article['nom'] .'<p/>';
+}
+?>
+
+<h1>Information de l'utilisateur</h1>
+<?php
+$sqlQuery= 'SELECT * FROM user';
+$userStatement = $bdd->prepare($sqlQuery);
+$userStatement->execute();
+$users = $userStatement->fetchAll();
+
+
+foreach ($users as $user){
+    echo '<p> Nom: ' .$user['nom'] .'<p/>';
+    echo '<p> Prenom: ' .$user['prenom'] .'<p/>';
+    echo '<p> email: ' .$user['email'] .'<p/>';
+    echo '<hr/>';
 }
 ?>
 </body>
