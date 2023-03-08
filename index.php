@@ -18,7 +18,9 @@ $articles = $articlesStatement->fetchAll();
 
 // On affiche chaque recette une à une
 foreach ($articles as $article) {
-    echo '<p>' .$article['nom'] .'<p/>';
+    echo '<p> Articles: ' .$article['nom'] .'<p/>';
+    echo '<p> Prix: '   .$article['prix'] .'<p/>';
+    echo '<hr/>';
 }
 ?>
 
