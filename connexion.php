@@ -1,4 +1,5 @@
-<?php require_once("bdd.php") ;?>
+<?php
+ require_once("bdd.php") ;?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,23 +18,27 @@
 </body>
 </html>
 <?php
-if (isset($_POST['submit']) AND isset($_POST['email']) AND isset($_POST['password'])){
-    // echo "Les champs sont présent";
-
-    // je vais declarer mes variables
-    $email    = trim(htmlspecialchars($_POST['email']));
-    $password = trim(htmlspecialchars($_POST['password']));
-
+if (isset($_POST['submit'])){
     // je vais verifier si un champs est vide
-    if (empty($email) OR empty($password)){
-        echo "Veuillez remplir un champs";
-    }
-    else{
+    if (!empty($_POST['email']) OR !empty($_POST['password'])){
+        // echo "Veuillez remplir un champs";
+        $email    = trim(htmlspecialchars($_POST['email']));
+        $password = htmlspecialchars($_POST['password']);
+        $password = password_hash($password, PASSWORD_ARGON2ID);
+        
+        $recupUser = $bdd->prepare('SELECT * FROM user WHERE email= ? AND password = ?');
+        $recupUser->execute(array($email, $password));
+        if($recupUser->rowCount()>0){
+            $recupUser->fetch()['idUser'];
+            echo "ok";
+        }else{
+            echo "Votre email ou mot de passe est incorrect";
+        }
+    }else{
         // je vais verifier la longueur du contenu du mot de passe
         if (strlen($password) < 8){echo "le mot de pass est trop court";}
-        elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)){ echo "Votre mail est incorrect"; }
-        else{
-            // On verifie si les donnée existes dans la base de données
+        elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)){ 
+            echo "Votre mail est incorrect";
         }  
     }
 }
