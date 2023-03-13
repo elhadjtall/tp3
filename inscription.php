@@ -10,14 +10,17 @@ require_once("bdd.php"); ?>
     <title>Inscription</title>
 </head>
 <body>
-    <h1>inscription</h1>
-    <form action="" method="POST">
+    <?php include_once('nav.php'); ?>
+    <div class="container">
+    <h1 class="mt-5">inscription</h1>
+    <form action="" method="POST" class="mt-5">
         <input type="text"      name="nom"      placeholder="nom"> <br><br>
         <input type="text"      name="prenom"   placeholder="prenom"><br><br>
         <input type="email"     name="email"    placeholder="email"><br> <br>
         <input type="password"  name="password" placeholder="Password"><br><br>
         <input type="submit"    name="submit"   value="INSCRIPTION">
     </form>
+    </div>
 </body>
 </html>
 <?php

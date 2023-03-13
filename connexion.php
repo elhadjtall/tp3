@@ -1,5 +1,6 @@
 <?php
- require_once("bdd.php") ;?>
+ require_once("bdd.php");
+ include('nav.php') ;?><br>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,27 +20,26 @@
 </html>
 <?php
 if (isset($_POST['submit'])){
+    $email    = trim(htmlspecialchars($_POST['email']));
+    $password = htmlspecialchars($_POST['password']);
+    
+
     // je vais verifier si un champs est vide
-    if (!empty($_POST['email']) OR !empty($_POST['password'])){
-        // echo "Veuillez remplir un champs";
-        $email    = trim(htmlspecialchars($_POST['email']));
-        $password = htmlspecialchars($_POST['password']);
-        $password = password_hash($password, PASSWORD_ARGON2ID);
+    if (!empty($email) OR !empty($password)){
+
+            // On récupère tout le contenu de la table recipes
+        $sqlQuery = 'SELECT * FROM user WHERE email = ? AND password = ?';
+        $req = $bdd->prepare($sqlQuery);
+        // $userStatement->execute(array($email, $password));
+        $req->execute(array( $email,password_hash($password, PASSWORD_ARGON2ID)));
+        $resultat = $req->fetchAll();
         
-        $recupUser = $bdd->prepare('SELECT * FROM user WHERE email= ? AND password = ?');
-        $recupUser->execute(array($email, $password));
-        if($recupUser->rowCount()>0){
-            $recupUser->fetch()['idUser'];
-            echo "ok";
-        }else{
-            echo "Votre email ou mot de passe est incorrect";
+        if(count($resultat)==0) echo "Identifiant incorrecte";
+        else {
+            echo "Vous ête connecté !";
         }
-    }else{
-        // je vais verifier la longueur du contenu du mot de passe
-        if (strlen($password) < 8){echo "le mot de pass est trop court";}
-        elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)){ 
-            echo "Votre mail est incorrect";
-        }  
-    }
+        
+    } 
 }
+
 ?>
