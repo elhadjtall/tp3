@@ -7,15 +7,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Connnexion</title>
 </head>
 <body>
-    <form action="" method="POST">
-        <h1>CONNEXION</h1>
-        <p><input type="email"     name="email"     placeholder="email"></p>
-        <p><input type="password"  name="password"  placeholder="password"></p>
-        <p><input type="submit"    name="submit"    value="CONNEXION"></p>
-    </form>
+<div class="container">
+<div class="formulaire">
+    <h1>Formulaire de Connexion</h1>
+<form action="" method="POST" class="mt-5">
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Addresse Email</label>
+    <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Mot de passe</label>
+    <input type="password"             class="form-control" name="password" id="exampleInputPassword1">
+  </div>
+  <div class="mb-3 form-check">
+    <input type="checkbox" class="form-check-input" name="submit" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+  </div>
+  <button type="submit" class="btn btn-primary">Connexion</button>
+</form>
+</div>
+</div>
 </body>
 </html>
 <?php
@@ -38,7 +54,7 @@ if (isset($_POST['submit'])){
         else {
             echo "Vous ête connecté !";
         }
-        
+
     } 
 }
 

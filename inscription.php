@@ -12,14 +12,28 @@ require_once("bdd.php"); ?>
 <body>
     <?php include_once('nav.php'); ?>
     <div class="container">
+    <div class="formulaire">
     <h1 class="mt-5">inscription</h1>
     <form action="" method="POST" class="mt-5">
-        <input type="text"      name="nom"      placeholder="nom"> <br><br>
-        <input type="text"      name="prenom"   placeholder="prenom"><br><br>
-        <input type="email"     name="email"    placeholder="email"><br> <br>
-        <input type="password"  name="password" placeholder="Password"><br><br>
-        <input type="submit"    name="submit"   value="INSCRIPTION">
+        <div class="mb-3">
+        <label for="exampleInputtext" class="form-label"> Votre nom</label>
+        <input type="text" class="form-control" id="exampleInputtext1" aria-describedby="nomHelp" name="nom" placeholder="nom">
+        </div>
+        <div class="mb-3">
+        <label for="exampleInputtext2" class="form-label">Votre Prénom</label>
+        <input type="text"  class="form-control" id="exampleInputtext2" aria-describedby="prenomHelp" name="prenom" placeholder="prenom">
+        </div>
+        <div class="mb-3">
+        <label for="exampleInputEmail" class="form-label">Addresse Email</label>
+        <input type="email" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp" name="email" placeholder="email">
+        </div>
+        <div class="mb-3">
+        <label for="exampleInputPassword" class="form-label">Votre mot de passe</label>
+        <input type="password" class="form-control" id="exampleInputpassword" name="password" placeholder="mot de passe">
+        </div>
+       <button type="submit" class="btn btn-primary" name="submit">Inscription</button>
     </form>
+    </div>
     </div>
 </body>
 </html>
