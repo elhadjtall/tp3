@@ -13,7 +13,7 @@ require_once("bdd.php"); ?>
     <?php include_once('nav.php'); ?>
     <div class="container">
     <div class="formulaire">
-    <h1 class="mt-5">inscription</h1>
+    <h1>Formulaire d'Inscription</h1>
     <form action="" method="POST" class="mt-5">
         <div class="mb-3">
         <label for="exampleInputtext" class="form-label"> Votre nom</label>

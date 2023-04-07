@@ -112,9 +112,10 @@
       </a>
 
       <ul class="nav nav-pills">
-        <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Acceuil</a></li>
+        <li class="nav-item"><a href="inscription.php" class="nav-link active" aria-current="page">Acceuil</a></li>
         <li class="nav-item"><a href="connexion.php" class="nav-link">Connexion</a></li>
-        <li class="nav-item"><a href="inscription.php" class="nav-link">Inscription</a></li>
+        <li class="nav-item"><a href="adresse.php" class="nav-link">adresse</a></li>
+        <li class="nav-item"><a href="article.php" class="nav-link">Article</a></li>
         <li class="nav-item"><a href="traitement.php" class="nav-link">Afficher</a></li>
         <li class="nav-item"><a href="#" class="nav-link">Contacts</a></li>
       </ul>
